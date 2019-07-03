@@ -79,7 +79,7 @@ namespace Sorting
              * 10 -  1008*/
 
             Console.ReadLine();
-            // FakeLol
+            // gigaLol
 
         }
     }
