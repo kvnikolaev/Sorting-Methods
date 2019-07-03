@@ -10,7 +10,7 @@ namespace SortingTestProject
         [TestMethod]
         public void InitTestMethod()
         {
-            Sorting.Program.Init(5000);
+            Sorting.Program.Init(5000); //lol
         }
 
         [TestMethod]
