@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,18 @@ namespace Sorting
 {
     public class Program
     {
+        [Benchmark]
+        public static void Bench()
+        {
+            int range = 50;
+            for (int i = 0; i < range; i++)
+            {
+                Init(5000);
+            }
+
+        }
+
+
         public static long Init(int range)
         {
             int[,] m = new int[range, range];
@@ -32,7 +46,7 @@ namespace Sorting
             int[,] m = new int[range, range];
 
             var timer = System.Diagnostics.Stopwatch.StartNew();
-            for (int i = 0; i < range; i++)
+            for (int i = 0; i < 10; i++)
             {
                 m[i, i] = 2;
                 for (int k = 0; k < range; k++)
@@ -48,12 +62,17 @@ namespace Sorting
 
         static void Main(string[] args)
         {
+            BenchmarkDotNet.Reports.Summary summary = BenchmarkRunner.Run<Program>();
+
+
+
+
             int range = 50;
 
             // loop
             // Timer start
             List<long> time = new List<long>();
-            for (int i = 0; i < range; i++)
+            for (int i = 0; i < 10; i++)
             {
                 time.Add( Init(5000));
             }
