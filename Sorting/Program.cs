@@ -63,7 +63,11 @@ namespace Sorting
              * 500 - 284,162 
              * 50  - 282,54 
              * 10  - 320,5 (280)
-             * 100 - 279,85*/
+             * 100 - 279,85
+             
+             PC Debug 50 - 182
+             PC Release 50 - 75
+             */
             Console.WriteLine("___________");
 
             List<long> time2 = new List<long>();
@@ -76,7 +80,11 @@ namespace Sorting
             /* range:
              
              * 50  - 996 (1034)
-             * 10 -  1008*/
+             * 10 -  1008
+             
+            PC Debug 50 - 711
+            PC Release 50 - 307
+             */
 
             Console.ReadLine();
 
