@@ -67,6 +67,8 @@ namespace Sorting
              
              PC Debug 50 - 182
              PC Release 50 - 75
+             Laptop Debug 50 - 292
+             Laptop Release 50 - 138
              */
             Console.WriteLine("___________");
 
@@ -84,6 +86,8 @@ namespace Sorting
              
             PC Debug 50 - 711
             PC Release 50 - 307
+            Laptop Debug 50 - 1054
+            Laptop Release 50 - 736
              */
 
             Console.ReadLine();
