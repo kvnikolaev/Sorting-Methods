@@ -16,7 +16,7 @@ namespace Sorting
             int range = 50;
             for (int i = 0; i < range; i++)
             {
-                Init(5000);
+                Init(5);
             }
 
         }
