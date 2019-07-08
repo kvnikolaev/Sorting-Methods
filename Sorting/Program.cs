@@ -1,5 +1,4 @@
-﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +9,6 @@ namespace Sorting
 {
     public class Program
     {
-        [Benchmark]
-        public static void Bench()
-        {
-            int range = 50;
-            for (int i = 0; i < range; i++)
-            {
-                Init(5);
-            }
-
-        }
-
 
         public static long Init(int range)
         {
@@ -46,7 +34,7 @@ namespace Sorting
             int[,] m = new int[range, range];
 
             var timer = System.Diagnostics.Stopwatch.StartNew();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < range; i++)
             {
                 m[i, i] = 2;
                 for (int k = 0; k < range; k++)
@@ -62,17 +50,13 @@ namespace Sorting
 
         static void Main(string[] args)
         {
-            BenchmarkDotNet.Reports.Summary summary = BenchmarkRunner.Run<Program>();
-
-
-
-
+            
             int range = 50;
 
             // loop
             // Timer start
             List<long> time = new List<long>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < range; i++)
             {
                 time.Add( Init(5000));
             }
@@ -82,7 +66,9 @@ namespace Sorting
              * 500 - 284,162 
              * 50  - 282,54 
              * 10  - 320,5 (280)
-             * 100 - 279,85*/
+             * 100 - 279,85
+             pc50 - 83
+             */
             Console.WriteLine("___________");
 
             List<long> time2 = new List<long>();
@@ -95,7 +81,9 @@ namespace Sorting
             /* range:
              
              * 50  - 996 (1034)
-             * 10 -  1008*/
+             * 10 -  1008
+             pc50 - 310
+             */
 
             Console.ReadLine();
             // gigaLol
