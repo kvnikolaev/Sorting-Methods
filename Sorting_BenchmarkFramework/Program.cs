@@ -4,12 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Columns;
+using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Running;
 
 namespace Sorting_BenchmarkFramework
 {
+    [Config(typeof(HabrExampleConfig))]
     public class Target
     {
+        private class HabrExampleConfig : ManualConfig
+        {
+            public HabrExampleConfig()
+            {
+                Add(StatisticColumn.Max); // Добавляем необходимую колонку    
+                Add(StatisticColumn.AllStatistics);
+            }
+        }
+
+
         [Benchmark(Description = "Init")]
         public void Bench()
         {
