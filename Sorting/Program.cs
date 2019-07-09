@@ -82,7 +82,7 @@ namespace Sorting
              
              * 50  - 996 (1034)
              * 10 -  1008
-             pc50 - 310
+             pc50 - !!в framework branch!!310
              */
 
             Console.ReadLine();
