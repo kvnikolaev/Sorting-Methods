@@ -69,6 +69,10 @@ namespace Sorting
              * 100 - 279,85
              pc50 - 83
              */
+
+            /*
+              Laptop Release 50 - 128
+             */
             Console.WriteLine("___________");
 
             List<long> time2 = new List<long>();
@@ -83,6 +87,10 @@ namespace Sorting
              * 50  - 996 (1034)
              * 10 -  1008
              pc50 - 310
+             */
+
+            /*
+             * Laptop Release 50 - 732
              */
 
             Console.ReadLine();

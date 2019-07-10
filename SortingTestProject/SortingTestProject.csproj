@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sorting\Sorting.csproj">
+    <ProjectReference Include="..\Sorting\Sorting_Benchmark.csproj">
       <Project>{5a577b55-9e35-4881-b188-2af80f5be300}</Project>
-      <Name>Sorting</Name>
+      <Name>Sorting_Benchmark</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
