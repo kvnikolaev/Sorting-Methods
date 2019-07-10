@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Sorting
 {
     public class Program
     {
+
         public static long Init(int range)
         {
             int[,] m = new int[range, range];
@@ -48,6 +50,7 @@ namespace Sorting
 
         static void Main(string[] args)
         {
+            
             int range = 50;
 
             // loop
