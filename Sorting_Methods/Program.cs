@@ -33,7 +33,21 @@ namespace Sorting_Methods
         static void Main(string[] args)
         {
             var array = GenerateRandomArray(19);
+            int[] array2 = new int[19];
+            int[] array3 = new int[19];
+            Array.Copy(array, array2, array.Length);
+            Array.Copy(array, array3, array.Length);
+
             PrintArray(array);
+
+            SelectionSort.Act(array);
+            PrintArray(array);
+
+            InsertionSort.Act(array2);
+            PrintArray(array2);
+
+            MergeSort.Act(array3);
+            PrintArray(array3);
 
             Console.WriteLine("End");
             Console.ReadLine();
