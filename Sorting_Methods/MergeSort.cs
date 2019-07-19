@@ -8,68 +8,76 @@ namespace Sorting_Methods
 {
     public class MergeSort
     {
-        static int SortCounter = 0;
-
         public static void Act(int[] a)
         {
             int begin = 0, end = a.Length - 1;
-            Sort(a, begin, end);
-            
+            Sort(a);
+
         }
 
-        private static void Sort(int[] a, int begin, int end)
+        private static int[] Sort(int[] buff)
         {
-            SortCounter++;
-            Console.WriteLine(SortCounter);
+            if (buff.Length > 1)
+            {
+                int[] left = new int[buff.Length / 2];
+                int[] right = new int[buff.Length - left.Length];
 
-            if (begin >= end) return;
+                for (int i = 0; i < left.Length; i++)
+                {
+                    left[i] = buff[i];
+                }
+                for (int i = 0; i < right.Length; i++)
+                {
+                    right[i] = buff[left.Length + i];
+                }
+                if (left.Length > 1)
+                    left = Sort(left);
+                if (right.Length > 1)
+                    right = Sort(right);
 
-            int q = end / 2;
-            Sort(a, begin, q);
-            Sort(a, q + 1, end);
+                buff = Merge(left, right);
+            }
+            return buff;
 
-            Merge(a, begin, q, end);
-         }
-
-        private static void Merge(int[] a, int begin, int q, int end)
+        }
+        static int number = 0;
+        private static int[] Merge(int[] left, int[] right)
         {
-            int[] first = new int[q - begin + 1];
-            int[] second = new int[end - q];
-
-            for (int i = begin, k = 0; i <= q; i++, k++)
+            int[] buff = new int[left.Length + right.Length];
+            //счетчики длины трех массивов
+            int i = 0;  //соединенный массив
+            int l = 0;  //левый массив
+            int r = 0;  //правый массив
+                        //сортировка сравнением элементов
+            for (; i < buff.Length; i++)
             {
-                first[k] = a[i];
-            }
-            for (int i = q+1, k = 0; i <= end; i++, k++)
-            {
-                second[k] = a[i];
-            }
-
-            for (int a_i = begin, first_k = 0, second_j = 0; a_i <= end; a_i++)
-            {
-                if (first_k >= first.Length)
+                //если правая часть уже использована, дальнейшее движение происходит только в левой
+                //проверка на выход правого массива за пределы
+                if (r >= right.Length)
                 {
-                    a[a_i] = second[second_j];
-                    second_j++;
-                    continue;
+                    buff[i] = left[l];
+                    l++;
                 }
-                if (second_j >= second.Length)
+                //проверка на выход за пределы левого массива
+                //и сравнение текущих значений обоих массивов
+                else if (l < left.Length && left[l] < right[r])
                 {
-                    a[a_i] = first[first_k];
-                    first_k++;
-                    continue;
+                    buff[i] = left[l];
+                    l++;
                 }
-                if (first[first_k] <= second[second_j])
-                {
-                    a[a_i] = first[first_k];
-                    first_k++;
-                }
+                //если текущее значение правой части больше
                 else
                 {
-                    a[a_i] = second[second_j];
-                    second_j++;
+                    buff[i] = right[r];
+                    r++;
+                    //подсчет количества инверсий
+                    if (l < left.Length)
+                        number += left.Length - l;
                 }
             }
+            //возврат отсортированного массива
+            return buff;
+
         }
     }
 }
