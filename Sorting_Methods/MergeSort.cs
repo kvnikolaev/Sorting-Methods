@@ -8,6 +8,8 @@ namespace Sorting_Methods
 {
     public class MergeSort
     {
+        static int SortCounter = 0;
+
         public static void Act(int[] a)
         {
             int begin = 0, end = a.Length - 1;
@@ -17,6 +19,9 @@ namespace Sorting_Methods
 
         private static void Sort(int[] a, int begin, int end)
         {
+            SortCounter++;
+            Console.WriteLine(SortCounter);
+
             if (begin >= end) return;
 
             int q = end / 2;
@@ -24,7 +29,7 @@ namespace Sorting_Methods
             Sort(a, q + 1, end);
 
             Merge(a, begin, q, end);
-        }
+         }
 
         private static void Merge(int[] a, int begin, int q, int end)
         {
