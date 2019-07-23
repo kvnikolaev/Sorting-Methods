@@ -11,7 +11,7 @@ namespace Sorting_Methods
         public static void Act(int[] a)
         {
             int begin = 0, end = a.Length - 1;
-            Sort(a);
+            a = Sort(a);
 
         }
 
@@ -43,41 +43,23 @@ namespace Sorting_Methods
         static int number = 0;
         private static int[] Merge(int[] left, int[] right)
         {
+            int i = 0, j = 0, k = 0;
             int[] buff = new int[left.Length + right.Length];
-            //счетчики длины трех массивов
-            int i = 0;  //соединенный массив
-            int l = 0;  //левый массив
-            int r = 0;  //правый массив
-                        //сортировка сравнением элементов
-            for (; i < buff.Length; i++)
+            while (i < left.Length && j < right.Length)
             {
-                //если правая часть уже использована, дальнейшее движение происходит только в левой
-                //проверка на выход правого массива за пределы
-                if (r >= right.Length)
-                {
-                    buff[i] = left[l];
-                    l++;
-                }
-                //проверка на выход за пределы левого массива
-                //и сравнение текущих значений обоих массивов
-                else if (l < left.Length && left[l] < right[r])
-                {
-                    buff[i] = left[l];
-                    l++;
-                }
-                //если текущее значение правой части больше
-                else
-                {
-                    buff[i] = right[r];
-                    r++;
-                    //подсчет количества инверсий
-                    if (l < left.Length)
-                        number += left.Length - l;
-                }
+                buff[k++] = left[i] < right[j] ? left[i++] : right[j++];
             }
-            //возврат отсортированного массива
+            if (i < left.Length)
+            {
+                for (int x = i; x < left.Length; x++)
+                    buff[k++] = left[x];
+            }
+            if (j < right.Length)
+            {
+                for (int y = j; y < right.Length; y++)
+                    buff[k++] = right[y];
+            }
             return buff;
-
         }
     }
 }
