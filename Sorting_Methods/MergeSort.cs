@@ -11,55 +11,60 @@ namespace Sorting_Methods
         public static void Act(int[] a)
         {
             int begin = 0, end = a.Length - 1;
-            a = Sort(a);
-
+            Sort(a, begin, end);
+            
         }
 
-        private static int[] Sort(int[] buff)
+        private static void Sort(int[] a, int begin, int end)
         {
-            if (buff.Length > 1)
-            {
-                int[] left = new int[buff.Length / 2];
-                int[] right = new int[buff.Length - left.Length];
+            if (begin >= end) return;
 
-                for (int i = 0; i < left.Length; i++)
-                {
-                    left[i] = buff[i];
-                }
-                for (int i = 0; i < right.Length; i++)
-                {
-                    right[i] = buff[left.Length + i];
-                }
-                if (left.Length > 1)
-                    left = Sort(left);
-                if (right.Length > 1)
-                    right = Sort(right);
+            int q = end / 2;
+            Sort(a, begin, q);
+            Sort(a, q + 1, end);
 
-                buff = Merge(left, right);
-            }
-            return buff;
-
+            Merge(a, begin, q, end);
         }
-        static int number = 0;
-        private static int[] Merge(int[] left, int[] right)
+
+        private static void Merge(int[] a, int begin, int q, int end)
         {
-            int i = 0, j = 0, k = 0;
-            int[] buff = new int[left.Length + right.Length];
-            while (i < left.Length && j < right.Length)
+            int[] first = new int[q - begin + 1];
+            int[] second = new int[end - q];
+
+            for (int i = begin, k = 0; i <= q; i++, k++)
             {
-                buff[k++] = left[i] < right[j] ? left[i++] : right[j++];
+                first[k] = a[i];
             }
-            if (i < left.Length)
+            for (int i = q+1, k = 0; i <= end; i++, k++)
             {
-                for (int x = i; x < left.Length; x++)
-                    buff[k++] = left[x];
+                second[k] = a[i];
             }
-            if (j < right.Length)
+
+            for (int a_i = begin, first_k = 0, second_j = 0; a_i <= end; a_i++)
             {
-                for (int y = j; y < right.Length; y++)
-                    buff[k++] = right[y];
+                if (first_k >= first.Length)
+                {
+                    a[a_i] = second[second_j];
+                    second_j++;
+                    continue;
+                }
+                if (second_j >= second.Length)
+                {
+                    a[a_i] = first[first_k];
+                    first_k++;
+                    continue;
+                }
+                if (first[first_k] <= second[second_j])
+                {
+                    a[a_i] = first[first_k];
+                    first_k++;
+                }
+                else
+                {
+                    a[a_i] = second[second_j];
+                    second_j++;
+                }
             }
-            return buff;
         }
     }
 }
