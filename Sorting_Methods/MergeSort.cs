@@ -19,7 +19,7 @@ namespace Sorting_Methods
         {
             if (begin >= end) return;
 
-            int q = end / 2;
+            int q = (begin + end) / 2;
             Sort(a, begin, q);
             Sort(a, q + 1, end);
 
