@@ -35,8 +35,10 @@ namespace Sorting_Methods
             var array = GenerateRandomArray(19);
             int[] array2 = new int[19];
             int[] array3 = new int[19];
+            int[] array4 = new int[19];
             Array.Copy(array, array2, array.Length);
             Array.Copy(array, array3, array.Length);
+            Array.Copy(array, array4, array.Length);
 
             PrintArray(array);
 
@@ -48,6 +50,9 @@ namespace Sorting_Methods
 
             MergeSort.Act(array3);
             PrintArray(array3);
+
+            QuickSort.Act(array4);
+            PrintArray(array4);
 
             Console.WriteLine("End");
             Console.ReadLine();
