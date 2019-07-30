@@ -18,7 +18,7 @@ namespace Sorting_BenchmarkFramework
             public HabrExampleConfig()
             {
                 Add(StatisticColumn.Max); // Добавляем необходимую колонку    
-                Add(StatisticColumn.AllStatistics);
+                //Add(StatisticColumn.AllStatistics);
             }
         }
 
@@ -26,13 +26,13 @@ namespace Sorting_BenchmarkFramework
         [Benchmark(Description = "Init")]
         public void Bench()
         {
-            Init(5000);
+            Init(500);
         }
 
         [Benchmark(Description = "InitDiagonal")]
         public void Bench1()
         {
-            InitDiagonal(5000);
+            InitDiagonal(500);
         }
 
         public static void Init(int range)

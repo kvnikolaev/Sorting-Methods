@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace Sorting_Methods
 {
@@ -53,6 +55,9 @@ namespace Sorting_Methods
 
             QuickSort.Act(array4);
             PrintArray(array4);
+
+            BenchmarkRunner.Run<BenchmarkAccomulator>();
+
 
             Console.WriteLine("End");
             Console.ReadLine();
