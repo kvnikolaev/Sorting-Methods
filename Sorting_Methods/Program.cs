@@ -38,9 +38,11 @@ namespace Sorting_Methods
             int[] array2 = new int[19];
             int[] array3 = new int[19];
             int[] array4 = new int[19];
+            int[] array5 = new int[19];
             Array.Copy(array, array2, array.Length);
             Array.Copy(array, array3, array.Length);
             Array.Copy(array, array4, array.Length);
+            Array.Copy(array, array5, array.Length);
 
             PrintArray(array);
 
@@ -55,6 +57,9 @@ namespace Sorting_Methods
 
             QuickSort.Act(array4);
             PrintArray(array4);
+
+            BubbleSort.Act(array5);
+            PrintArray(array5);
 
             BenchmarkRunner.Run<BenchmarkAccomulator>();
 

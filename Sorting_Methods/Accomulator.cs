@@ -9,7 +9,7 @@ namespace Sorting_Methods
 {
     public class BenchmarkAccomulator
     {
-        static int[] array, array1, array2, array3;
+        static int[] array, array1, array2, array3, array4;
 
         static BenchmarkAccomulator()
         {
@@ -17,11 +17,12 @@ namespace Sorting_Methods
             array1 = new int[howMuch];
             array2 = new int[howMuch];
             array3 = new int[howMuch];
+            array4 = new int[howMuch];
             array = Program.GenerateRandomArray(howMuch);
             Array.Copy(array, array1, array.Length);
             Array.Copy(array, array2, array.Length);
             Array.Copy(array, array3, array.Length);
-            
+            Array.Copy(array, array4, array.Length);
         }
 
         [Benchmark(Description = "InsertionSort")]
@@ -68,5 +69,15 @@ namespace Sorting_Methods
              */
             QuickSort.Act(array3);
         }
+
+        [Benchmark(Description = "BubbleSort")]
+        public static void BenchBubbleSort()
+        {
+            /*
+             1900 - 14 us
+             */
+            BubbleSort.Act(array4);
+        }
+
     }
 }
