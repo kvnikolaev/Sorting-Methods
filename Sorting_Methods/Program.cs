@@ -24,7 +24,7 @@ namespace Sorting_Methods
 
         public static void PrintArray(int[] a)
         {
-            for(int k = 0; k < a.Length - 1; k++)
+            for (int k = 0; k < a.Length - 1; k++)
             {
                 Console.Write(a[k] + ", ");
             }

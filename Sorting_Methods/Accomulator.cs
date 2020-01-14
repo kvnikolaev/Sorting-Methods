@@ -26,7 +26,7 @@ namespace Sorting_Methods
         }
 
         [Benchmark(Description = "InsertionSort")]
-        public static void BenchInsertionSort()   
+        public void BenchInsertionSort()   
         {
             /*
              *  19 - median 272 ns    GenerateRandomArray (5,75us)
@@ -38,7 +38,7 @@ namespace Sorting_Methods
         }
 
         [Benchmark(Description = "SelectionSort")]
-        public static void BenchSelectionSort()
+        public void BenchSelectionSort()
         {
             /*
              
@@ -49,7 +49,7 @@ namespace Sorting_Methods
         }
 
         [Benchmark(Description = "MergeSort")]
-        public static void BenchMergeSort()
+        public void BenchMergeSort()
         {
             /*
 
@@ -60,7 +60,7 @@ namespace Sorting_Methods
         }
 
         [Benchmark(Description = "QuickSort")]
-        public static void BenchQuickSort()
+        public void BenchQuickSort()
         {
             /*
              
@@ -71,7 +71,7 @@ namespace Sorting_Methods
         }
 
         [Benchmark(Description = "BubbleSort")]
-        public static void BenchBubbleSort()
+        public void BenchBubbleSort()
         {
             /*
              1900 - 14 us
